@@ -1,6 +1,6 @@
-defmodule Pusher.HttpClientTest do
+defmodule Pushxer.HttpClientTest do
   use ExUnit.Case, async: true
-  alias Pusher.HttpClient
+  alias Pushxer.HttpClient
 
   describe "process_response_body/1" do
     test "json body" do

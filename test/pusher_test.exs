@@ -1,7 +1,7 @@
-defmodule PusherTest do
+defmodule PushxerTest do
   use ExUnit.Case, async: true
   use Mimic
-  alias Pusher.{Client, HttpClient}
+  alias Pushxer.{Client, HttpClient}
 
   setup do
     stub(HttpClient)
@@ -31,7 +31,7 @@ defmodule PusherTest do
         {:ok, @response_succesful}
       end)
 
-      assert Pusher.trigger(@client, "event-name", "data", "channel") == :ok
+      assert Pushxer.trigger(@client, "event-name", "data", "channel") == :ok
     end
 
     test "unsuccessful request" do
@@ -41,7 +41,7 @@ defmodule PusherTest do
         {:ok, response}
       end)
 
-      assert Pusher.trigger(@client, "event-name", "data", "channel") == {:error, response}
+      assert Pushxer.trigger(@client, "event-name", "data", "channel") == {:error, response}
     end
 
     test "request error" do
@@ -49,7 +49,7 @@ defmodule PusherTest do
         {:error, :reason}
       end)
 
-      assert Pusher.trigger(@client, "event-name", "data", "channel") == {:error, :reason}
+      assert Pushxer.trigger(@client, "event-name", "data", "channel") == {:error, :reason}
     end
 
     test "sends the payload with a socket_id" do
@@ -60,7 +60,7 @@ defmodule PusherTest do
         {:ok, @response_succesful}
       end)
 
-      assert Pusher.trigger(@client, "event-name", "data", "channel", "blah") == :ok
+      assert Pushxer.trigger(@client, "event-name", "data", "channel", "blah") == :ok
     end
   end
 
@@ -75,7 +75,7 @@ defmodule PusherTest do
         {:ok, @response_with_channel}
       end)
 
-      assert Pusher.channels(@client) == {:ok, %{"test_channel" => %{}}}
+      assert Pushxer.channels(@client) == {:ok, %{"test_channel" => %{}}}
     end
 
     test "unsuccessful request" do
@@ -85,7 +85,7 @@ defmodule PusherTest do
         {:ok, response}
       end)
 
-      assert Pusher.channels(@client) == {:error, response}
+      assert Pushxer.channels(@client) == {:error, response}
     end
 
     test "request error" do
@@ -93,7 +93,7 @@ defmodule PusherTest do
         {:error, :reason}
       end)
 
-      assert Pusher.channels(@client) == {:error, :reason}
+      assert Pushxer.channels(@client) == {:error, :reason}
     end
   end
 
@@ -111,7 +111,7 @@ defmodule PusherTest do
         {:ok, @response_with_channel_info}
       end)
 
-      assert Pusher.channel(@client, "test_info_channel") ==
+      assert Pushxer.channel(@client, "test_info_channel") ==
                {:ok, %{"occupied" => true, "user_count" => 42}}
     end
 
@@ -125,7 +125,7 @@ defmodule PusherTest do
         {:ok, response}
       end)
 
-      assert Pusher.channel(@client, "test_info_channel") == {:error, response}
+      assert Pushxer.channel(@client, "test_info_channel") == {:error, response}
     end
 
     test "request error" do
@@ -136,7 +136,7 @@ defmodule PusherTest do
         {:error, :reason}
       end)
 
-      assert Pusher.channel(@client, "test_info_channel") == {:error, :reason}
+      assert Pushxer.channel(@client, "test_info_channel") == {:error, :reason}
     end
   end
 
@@ -153,7 +153,7 @@ defmodule PusherTest do
         {:ok, @response_with_users}
       end)
 
-      assert Pusher.users(@client, "presence-foobar") == {:ok, [%{"id" => 3}, %{"id" => 57}]}
+      assert Pushxer.users(@client, "presence-foobar") == {:ok, [%{"id" => 3}, %{"id" => 57}]}
     end
 
     test "unsuccessful request" do
@@ -165,7 +165,7 @@ defmodule PusherTest do
         {:ok, response}
       end)
 
-      assert Pusher.users(@client, "presence-foobar") == {:error, response}
+      assert Pushxer.users(@client, "presence-foobar") == {:error, response}
     end
 
     test "request error" do
@@ -175,7 +175,7 @@ defmodule PusherTest do
         {:error, :reason}
       end)
 
-      assert Pusher.users(@client, "presence-foobar") == {:error, :reason}
+      assert Pushxer.users(@client, "presence-foobar") == {:error, :reason}
     end
   end
 end

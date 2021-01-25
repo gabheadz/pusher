@@ -1,4 +1,4 @@
-defmodule Pusher.Mixfile do
+defmodule Pushxer.Mixfile do
   use Mix.Project
 
   @description """
@@ -7,13 +7,13 @@ defmodule Pusher.Mixfile do
 
   def project do
     [
-      app: :pusher,
-      version: "2.2.0",
+      app: :pushxer,
+      version: "0.0.1",
       elixir: "~> 1.7",
-      name: "Pusher",
+      name: "Pushxer",
       description: @description,
       package: package(),
-      source_url: "https://github.com/edgurgel/pusher",
+      source_url: "https://github.com/gabheadz/pushxer.git",
       deps: deps(),
       docs: [
         main: "readme",
@@ -28,20 +28,19 @@ defmodule Pusher.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 1.0"},
+      {:httpoison, "~> 1.8"},
       {:signaturex, "~> 1.3.0"},
-      {:jason, "~> 1.0"},
-      {:websockex, "~> 0.4.0"},
-      {:mimic, "~> 1.0", only: :test},
+      {:jason, "~> 1.2"},
+      {:mimic, "~> 1.4", only: :test},
       {:ex_doc, "~> 0.19", only: :dev, runtime: false}
     ]
   end
 
   defp package do
     [
-      maintainers: ["Eduardo Gurgel Pinho", "Bernat Jufré"],
+      maintainers: ["Gabriel Martinez"],
       licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/edgurgel/pusher"}
+      links: %{"Github" => "https://github.com/gabheadz/pushxer.git"}
     ]
   end
 end

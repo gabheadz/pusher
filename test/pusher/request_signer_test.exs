@@ -1,6 +1,6 @@
-defmodule Pusher.RequestSignerTest do
+defmodule Pushxer.RequestSignerTest do
   use ExUnit.Case, async: true
-  import Pusher.RequestSigner
+  import Pushxer.RequestSigner
   use Mimic
 
   @frozen_time 1_353_088_179

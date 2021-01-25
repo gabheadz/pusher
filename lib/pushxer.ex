@@ -1,5 +1,5 @@
-defmodule Pusher do
-  alias Pusher.HttpClient
+defmodule Pushxer do
+  alias Pushxer.HttpClient
 
   @doc """
   Trigger a simple `event` on `channels` sending some `data`

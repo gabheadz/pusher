@@ -1,4 +1,3 @@
-Mimic.copy(Pusher.HttpClient)
+Mimic.copy(Pushxer.HttpClient)
 Mimic.copy(Signaturex.Time)
-Mimic.copy(WebSockex)
 ExUnit.start()

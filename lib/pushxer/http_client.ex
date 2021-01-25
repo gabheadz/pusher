@@ -1,7 +1,7 @@
-defmodule Pusher.HttpClient do
+defmodule Pushxer.HttpClient do
   use HTTPoison.Base
-  alias Pusher.RequestSigner
-  alias Pusher.Client
+  alias Pushxer.RequestSigner
+  alias Pushxer.Client
 
   def process_response_body(body) do
     case Jason.decode(body) do
@@ -11,7 +11,7 @@ defmodule Pusher.HttpClient do
   end
 
   @doc """
-  More info at: http://pusher.com/docs/rest_api#authentication
+  More info at: https://pusher.com/docs/channels/library_auth_reference/rest-api#generating-authentication-signatures
   """
   def request(method, path, body \\ "", headers \\ [], options \\ []) do
     client = Keyword.get(options, :client, %Client{})
